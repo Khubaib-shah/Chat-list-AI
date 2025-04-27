@@ -1,5 +1,5 @@
 import React from "react";
-import "./ChatBotStart.css";
+import "../Styles/ChatBotStart.css";
 const ChatBotStart = () => {
   return (
     <div className="start-page">
