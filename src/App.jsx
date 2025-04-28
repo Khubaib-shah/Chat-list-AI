@@ -5,8 +5,22 @@ import ChatBotStart from "./components/ChatBotStart";
 
 function App() {
   const [isChatting, setIsChatting] = useState(false);
+  const [chats, setChats] = useState([]);
+
   const handleStartChatting = () => {
     setIsChatting(true);
+
+    // console.log(
+    //   new Date().toLocaleDateString("en-GB"),
+    //   new Date().toLocaleTimeString()
+    // );
+    const newChat = {
+      id: `chat ${new Date().toLocaleDateString(
+        "en-GB"
+      )} ${new Date().toLocaleTimeString()}`,
+      messages: [],
+    };
+    setChats([newChat]);
   };
   const handleGoBack = () => {
     setIsChatting(false);
@@ -15,7 +29,11 @@ function App() {
     <>
       <div className="container">
         {isChatting ? (
-          <ChatBotApp onGoBack={handleGoBack} />
+          <ChatBotApp
+            onGoBack={handleGoBack}
+            chats={chats}
+            setChats={setChats}
+          />
         ) : (
           <ChatBotStart onStartChat={handleStartChatting} />
         )}
