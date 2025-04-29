@@ -21,13 +21,21 @@ function App() {
     setIsChatting(false);
   };
 
-  const createNewChat = () => {
+  const createNewChat = (initialMessage = "") => {
     const newChat = {
       id: uuidv4(),
       displayId: `chat ${new Date().toLocaleDateString(
         "en-GB"
       )} ${new Date().toLocaleTimeString()}`,
-      messages: [],
+      messages: initialMessage
+        ? [
+            {
+              type: "prompt",
+              text: initialMessage,
+              timestamp: new Date().toLocaleTimeString(),
+            },
+          ]
+        : [],
     };
     const updatedChats = [newChat, ...chats];
     setChats(updatedChats);
