@@ -60,6 +60,7 @@
 .chat-app .chat-list-item i {
   font-size: 1.6rem;
   color: #f42f52;
+  cursor: pointer;
 }
 
 /* Chat Window */
